@@ -1,0 +1,70 @@
+title: Hexo搭建教程与心得
+author: Guo Yu
+tags:
+  - Hexo
+categories: []
+date: 2019-01-30 10:58:00
+updated: 2019-01-30 21:58:00
+---
+# 关于Hexo
+Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+
+由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 [Hexo官网](https://hexo.io/zh-cn/) 提供的教程，快速完成搭建。
+
+# 部署到Github Pages
+按照Hexo官网的文档搭建好自己的博客以后，就可以在本地访问自己的博客了，但是想要让其他人也看到，还需要将自己的Hexo部署到服务器上。这里我选择了Github Pages，第一因为其是免费的且部署起来很方便，其次它和Github有着很好的联动性，很适合将自己的代码和博客关联起来。
+
+1. 创建自己在GitHub上的Github Pages  
+在gitbug上创建Github Pages和创建普通的repository一样，只不过需要将其名称设置为特定的格式：username.github.io , 其username就是你的gitbug账号了。
+
+2. 安装Hexo部署至GitHub Pages的插件  
+在终端命令行输入：npm install hexo-deployer-git --save ,完成插件安装
+
+3. Hexo配置文件修改  
+在Hexo根目录下找到配置文件_config.yml并打开，修改其中关于部署的配置项：
+
+```
+deploy:
+  type: git
+  repo: <repository url> 
+  branch: [branch] 
+  message: [message]
+```
+
+***参数说明  ***
+**type：** 部署类型，这里由于是部署在GitHub Pages上，所以只能填写git  
+**repo：** 你的GitHub Pages绝对地址，如https://github.com/username/username.github.io  
+**branch:** 作为博客的发布分支，每次部署时，你的本地代码都被同步到这个分支上，GitHub Pages也将展示这个分支的内容   
+**message:** 自定义提交信息 
+
+> 之前GitHub Pages可以选择任意分支作为发布分支，但是我部署的时候，在原先选择发布分支的地方，看到了 “User pages must be built from the master branch.”提示，也就是说现在只能将master分支作为发布分支，所以在配置文件中，你应该把branch:设置成 master
+
+4. 部署至GitHub Pages  
+在完成以上步骤后，依次在终端命令行执行以下脚本，即可将你的本地Hexo部署到GitHub Pages上，之后只需要通过浏览器访问你的GitHub Pages地址，就能看到博客了！
+
+# 关于主题  
+Hexo的主题可以看成是官方帮你实现的博客框架，现在有有很优秀的开源主题都放在gitbug上，其中[NexT](https://github.com/iissnan/hexo-theme-next)是一款广受好评的主题，其下有4款不同的风格可供选择，当然你也可以搜索更多的主题，选择你喜欢的布局与风格，这里只介绍如何使用NexT主题，其他主题的使用方式大同小异。  
+
+首先，你需要把NexT主题下载到你的Hexo根目录下的themes文件夹中，这里推荐直接使用git来pull，在命令行输入如下脚本即可（执行的目录在Hexo根目录下）
+
+```
+$ git clone https://github.com/iissnan/hexo-theme-next themes/next
+```
+
+然后，你需要修改根目录下的配置文件_config.yml，将主题设置为NexT
+```
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: next
+```
+最后，在命令行依次执行：hexo g 和 hexo d ，即可将主题应用到博客，并部署到GitHub Pages
+
+
+
+
+
+
+
+### PS
+关于Hexo的搭建与部署，在网上已经有很多比较全面的教程，这里记录的是本人搭建此Blog的过程，以及遇到的各种问题。目前记录的还不够完整，我会在后续不断优化我的博客时，不断在此处补充相关内容。
