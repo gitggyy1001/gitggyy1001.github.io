@@ -260,6 +260,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/ring学习笔记与心得（二）-2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="干锅鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的小博客，时尚最时尚">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/04/ring学习笔记与心得（二）-2/" itemprop="url">Spring学习笔记与心得（二）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T17:42:01+08:00">
+                2019-03-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T18:07:41+08:00">
+                2019-03-04
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="第二章：装配Bean"><a href="#第二章：装配Bean" class="headerlink" title="第二章：装配Bean"></a>第二章：装配Bean</h3><p>&emsp;&emsp;本章主要介绍了Bean的声明、注入与生命周期。</p>
+<h5 id="1、Bean容器装配机制"><a href="#1、Bean容器装配机制" class="headerlink" title="1、Bean容器装配机制"></a>1、Bean容器装配机制</h5><p>&emsp;&emsp;Spring提供了三种Bean的装配机制</p>
+<blockquote>
+<p>在XML中进行显示配置</p>
+</blockquote>
+<blockquote>
+<p>在JAVA中进行显示配置</p>
+</blockquote>
+<blockquote>
+<p>Bean的发现机制与自动装配</p>
+</blockquote>
+<p>&emsp;&emsp;在Spring中以@Component注解的类，会被视为Spring的组件类，默认在Spring应用上下文创建过程中，会将其初始化并 纳入Bean容器。但是必须要注意，使用@ComponentScan来启动组件扫描，以便Spring知道你需要将哪些包下的Bean纳入到容器中管理。</p>
+<p>开启组件扫描有2中方式：XML方式和JAVA配置方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<h6 id="关于Bean初始化时机"><a href="#关于Bean初始化时机" class="headerlink" title="关于Bean初始化时机"></a>关于Bean初始化时机</h6><p>&emsp;&emsp;1.如果bean的scope是singleton的，并且lazy-init为false（默认是false，所以可以不用设置），则ApplicationContext启动的时候就实例化该Bean，并且将实例化的Bean放在一个map结构的缓存中，下次再使用该Bean的时候，直接从这个缓存中取<br>&emsp;&emsp;2.如果bean的scope是singleton的，并且lazy-init为true，则该Bean的实例化是在第一次使用该Bean的时候进行实例化<br>&emsp;&emsp;3.如果bean的scope是prototype的，则该Bean的实例化是在第一次使用该Bean的时候进行实例化</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/04/ring学习笔记与心得（二）-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/pring学习笔记与心得（一）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -307,8 +458,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-25T20:08:21+08:00">
-                2019-02-25
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-08T14:16:42+08:00">
+                2019-03-08
               </time>
             
           </span>
@@ -342,10 +493,15 @@
 
       
         
-          
-            <p><img src="/2019/02/25/pring学习笔记与心得（一）/malio.jpg" alt="hello!"></p>
-
-          
+          <p><img src="/2019/02/25/pring学习笔记与心得（一）/malio.jpg" alt="hello!"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;本篇博客是本人在阅读《Spring实战（第四版）》时的读书笔记与一些感悟、总结，旨在能够通过记录博客的形式，把认为的重点和自己的一些想法保存下来，以便加深印象和以后的查阅。本人并不是什么大神，博客中可能会有错误的理解或观点，欢迎各位大佬拍砖！</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/25/pring学习笔记与心得（一）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -880,7 +1036,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
