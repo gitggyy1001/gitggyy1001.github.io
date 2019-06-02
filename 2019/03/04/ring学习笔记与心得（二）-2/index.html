@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="ggyy1001">
+  <meta name="keywords" content="Spring,">
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="第二章：装配Bean&amp;emsp;&amp;emsp;本章主要介绍了Bean的声明、注入与生命周期。 1、Bean容器装配机制&amp;emsp;&amp;emsp;Spring提供了三种Bean的装配机制  在XML中进行显示配置   在JAVA中进行显示配置   Bean的发现机制与自动装配  &amp;emsp;&amp;emsp;在Spring中以@Component注解的类，会被视为Spring的组件类，默认在Spring应用上">
-<meta name="keywords" content="java spring zookeeper redis mq">
+<meta name="description" content="第二章：装配Bean&amp;emsp;&amp;emsp;本章主要介绍了Bean的声明、注入与生命周期。 1、Bean容器装配机制&amp;emsp;&amp;emsp;Spring提供了三种Bean的装配机制  在XML中进行显示配置  12345678910111213&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;beans xmln">
+<meta name="keywords" content="Spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring学习笔记与心得（二）">
 <meta property="og:url" content="http://yoursite.com/2019/03/04/ring学习笔记与心得（二）-2/index.html">
 <meta property="og:site_name" content="我的小博客，时尚最时尚">
-<meta property="og:description" content="第二章：装配Bean&amp;emsp;&amp;emsp;本章主要介绍了Bean的声明、注入与生命周期。 1、Bean容器装配机制&amp;emsp;&amp;emsp;Spring提供了三种Bean的装配机制  在XML中进行显示配置   在JAVA中进行显示配置   Bean的发现机制与自动装配  &amp;emsp;&amp;emsp;在Spring中以@Component注解的类，会被视为Spring的组件类，默认在Spring应用上">
+<meta property="og:description" content="第二章：装配Bean&amp;emsp;&amp;emsp;本章主要介绍了Bean的声明、注入与生命周期。 1、Bean容器装配机制&amp;emsp;&amp;emsp;Spring提供了三种Bean的装配机制  在XML中进行显示配置  12345678910111213&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;beans xmln">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T10:07:41.760Z">
+<meta property="og:updated_time" content="2019-04-03T09:56:11.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring学习笔记与心得（二）">
-<meta name="twitter:description" content="第二章：装配Bean&amp;emsp;&amp;emsp;本章主要介绍了Bean的声明、注入与生命周期。 1、Bean容器装配机制&amp;emsp;&amp;emsp;Spring提供了三种Bean的装配机制  在XML中进行显示配置   在JAVA中进行显示配置   Bean的发现机制与自动装配  &amp;emsp;&amp;emsp;在Spring中以@Component注解的类，会被视为Spring的组件类，默认在Spring应用上">
+<meta name="twitter:description" content="第二章：装配Bean&amp;emsp;&amp;emsp;本章主要介绍了Bean的声明、注入与生命周期。 1、Bean容器装配机制&amp;emsp;&amp;emsp;Spring提供了三种Bean的装配机制  在XML中进行显示配置  12345678910111213&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;beans xmln">
 
 
 
@@ -289,7 +289,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T17:42:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T17:42:00+08:00">
                 2019-03-04
               </time>
             
@@ -305,12 +305,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T18:07:41+08:00">
-                2019-03-04
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-03T17:56:11+08:00">
+                2019-04-03
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -346,21 +368,65 @@
       
         <h3 id="第二章：装配Bean"><a href="#第二章：装配Bean" class="headerlink" title="第二章：装配Bean"></a>第二章：装配Bean</h3><p>&emsp;&emsp;本章主要介绍了Bean的声明、注入与生命周期。</p>
 <h5 id="1、Bean容器装配机制"><a href="#1、Bean容器装配机制" class="headerlink" title="1、Bean容器装配机制"></a>1、Bean容器装配机制</h5><p>&emsp;&emsp;Spring提供了三种Bean的装配机制</p>
+<ul>
+<li><p>在XML中进行显示配置</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line"> xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line"> http://www.springframework.org/schema/beans/spring-beans-4.0.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line"> &lt;bean class=&quot;com.xxx.spring.example.User&quot; id=&quot;user&quot;&gt;</span><br><span class="line">     &lt;constructor-arg ref=&quot;myArticle&quot;/&gt;</span><br><span class="line"> &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line"> &lt;bean class=&quot;com.xxx.spring.example.MyArticle&quot; id=&quot;myArticle&quot;&gt;</span><br><span class="line"> &lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在JAVA中进行显示配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ComponentScan(&quot;com.xxx&quot;)</span><br><span class="line">public class WebConfig &#123;</span><br><span class="line"></span><br><span class="line">  @Bean</span><br><span class="line">  //这里通过在创建Bean时，传入依赖的Bean的创建方法实现注入</span><br><span class="line">  public User user() &#123;</span><br><span class="line">      return new User(myArticle());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Bean</span><br><span class="line">  public MyArticle myArticle() &#123;</span><br><span class="line">      return new MyArticle();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <blockquote>
-<p>在XML中进行显示配置</p>
+<p>这里看起来是调用了myArticle()方法，其实在spring内部，当调用这个方法时，会直接返回相应的Bean，而不是真正调用。</p>
 </blockquote>
+<ul>
+<li><p>Bean的发现机制与自动装配</p>
+<p>  1、使用@Component将普通Java类配置成SpringBean</p>
 <blockquote>
-<p>在JAVA中进行显示配置</p>
+<p>在Spring中以@Component注解的类，会被视为Spring的组件类，默认在Spring应用上下文创建过程中，会将其初始化并纳入Bean容器。</p>
 </blockquote>
+<p> 2、在需要注入Bean的地方，使用@Autowired（自动装配）来实现注入</p>
+<p> 3、使用@ComponentScan来启动组件扫描</p>
 <blockquote>
-<p>Bean的发现机制与自动装配</p>
+<p>使用@ComponentScan来启动组件扫描，以便Spring知道你需要将哪些包下的Bean纳入到容器中管理。</p>
 </blockquote>
-<p>&emsp;&emsp;在Spring中以@Component注解的类，会被视为Spring的组件类，默认在Spring应用上下文创建过程中，会将其初始化并 纳入Bean容器。但是必须要注意，使用@ComponentScan来启动组件扫描，以便Spring知道你需要将哪些包下的Bean纳入到容器中管理。</p>
-<p>开启组件扫描有2中方式：XML方式和JAVA配置方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>开启组件扫描有2中方式：XML方式和JAVA配置方式:</p>
+<p>在JAVA中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@ComponentScan(basePackages=&#123;&quot;com.xxx.xxx&quot;,&quot;com.yyy.yyy&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<p>在XML中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;context:component-scan base-package=&quot;com.xxx.xxx,com.yyy.yyy&quot;/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <blockquote>
 <h6 id="关于Bean初始化时机"><a href="#关于Bean初始化时机" class="headerlink" title="关于Bean初始化时机"></a>关于Bean初始化时机</h6><p>&emsp;&emsp;1.如果bean的scope是singleton的，并且lazy-init为false（默认是false，所以可以不用设置），则ApplicationContext启动的时候就实例化该Bean，并且将实例化的Bean放在一个map结构的缓存中，下次再使用该Bean的时候，直接从这个缓存中取<br>&emsp;&emsp;2.如果bean的scope是singleton的，并且lazy-init为true，则该Bean的实例化是在第一次使用该Bean的时候进行实例化<br>&emsp;&emsp;3.如果bean的scope是prototype的，则该Bean的实例化是在第一次使用该Bean的时候进行实例化</p>
 </blockquote>
 <a id="more"></a>
+<h5 id="2、注入方式"><a href="#2、注入方式" class="headerlink" title="2、注入方式"></a>2、注入方式</h5><p>  Spring提供了多种依赖注入的方式，包括：</p>
+<ol>
+<li><p>构造器注入<br>之前的例子中，就是利用了User的构造器将MyArticle注入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> @Configuration</span><br><span class="line"> @ComponentScan(&quot;com.xxx&quot;)</span><br><span class="line"> public class WebConfig &#123;</span><br><span class="line"></span><br><span class="line"> @Bean</span><br><span class="line"> //这里通过在创建Bean时，传入依赖的Bean的创建方法实现注入</span><br><span class="line"> public User user() &#123;</span><br><span class="line">     return new User(myArticle());</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> @Bean</span><br><span class="line"> public MyArticle myArticle() &#123;</span><br><span class="line">     return new MyArticle();</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们也可以通过XML的方式来实现构造器注入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean class=&quot;com.xxx.spring.example.User&quot; id=&quot;user&quot;&gt;</span><br><span class="line">     &lt;constructor-arg ref=&quot;myArticle&quot;/&gt;</span><br><span class="line"> &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>如果想要注入字面变量，则使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean class=&quot;com.xxx.spring.example.User&quot; id=&quot;user&quot;&gt;</span><br><span class="line">     &lt;constructor-arg value=&quot;123&quot;/&gt;</span><br><span class="line"> &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>注入列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean class=&quot;com.xxx.spring.example.User&quot; id=&quot;user&quot;&gt;</span><br><span class="line">     &lt;constructor-arg&gt;</span><br><span class="line">       &lt;list&gt;</span><br><span class="line">         字面变量</span><br><span class="line">         &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">         &lt;value&gt;2&lt;/value&gt;</span><br><span class="line">         &lt;value&gt;3&lt;/value&gt;</span><br><span class="line">         或Bean</span><br><span class="line">         &lt;ref bean=&quot;xxx&quot; /&gt;</span><br><span class="line">         &lt;ref bean=&quot;yyy&quot; /&gt;</span><br><span class="line">       &lt;/list&gt;</span><br><span class="line">     &lt;/constructor-arg&gt;</span><br><span class="line"> &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="2">
+<li><p>属性注入（Setter）<br>在确保User有myArticle属性，且有被@Autowired注释的setter时，可以通过以下xml配置完成属性注入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &lt;bean class=&quot;com.xxx.spring.example.User&quot; id=&quot;user&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;myArticle&quot; ref=&quot;myArticle&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>同理，要装配字面变量，则使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> &lt;bean class=&quot;com.xxx.spring.example.User&quot; id=&quot;user&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;myArticle&quot; value=&quot;123&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;xxx&quot;&gt;</span><br><span class="line">        &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">        &lt;value&gt;2&lt;/value&gt;</span><br><span class="line">        &lt;value&gt;3&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="3、跨配置装配"><a href="#3、跨配置装配" class="headerlink" title="3、跨配置装配"></a>3、跨配置装配</h5><ul>
+<li><p>在java配置中：<br>@Import(xxx.class)：可以在一个javaConfig中，引入其他的javaConfig<br>@ImportResource(“classpath:xxx.xml”)：可以在一个javaConfig中引入xml配置</p>
+</li>
+<li><p>在xml配置中：<br>&lt; import &gt;：可以导入其他xml配置<br>要导入其他javaConfig定义的Bean，则只能通过<bean>标签了</bean></p>
+<h3 id="注入静态变量"><a href="#注入静态变量" class="headerlink" title="注入静态变量"></a>注入静态变量</h3><p>在类中使用的静态变量，由于是属于类属性，而非对象所有，因此直接使用@Autowired 注解无法注入；<br>解决办法是：使用setter注入，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static User user;</span><br><span class="line"></span><br><span class="line">public void setUser(User user)&#123;</span><br><span class="line">  this.user = user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -375,6 +441,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
+          
+        </div>
       
 
       
@@ -394,6 +466,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/09/asticSearch学习笔记心得（一）/" rel="prev" title="ElasticSearch学习笔记心得（一）">
+                ElasticSearch学习笔记心得（一） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -472,7 +548,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -483,7 +559,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -494,7 +570,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -537,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第二章：装配Bean"><span class="nav-text">第二章：装配Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、Bean容器装配机制"><span class="nav-text">1、Bean容器装配机制</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#关于Bean初始化时机"><span class="nav-text">关于Bean初始化时机</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第二章：装配Bean"><span class="nav-text">第二章：装配Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、Bean容器装配机制"><span class="nav-text">1、Bean容器装配机制</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#关于Bean初始化时机"><span class="nav-text">关于Bean初始化时机</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、注入方式"><span class="nav-text">2、注入方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、跨配置装配"><span class="nav-text">3、跨配置装配</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#注入静态变量"><span class="nav-text">注入静态变量</span></a></li></div>
             
 
           </div>

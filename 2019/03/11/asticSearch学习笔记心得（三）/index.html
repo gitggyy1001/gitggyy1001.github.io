@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,">
+  <meta name="keywords" content="ES,">
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="关于HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 Hexo官网 提供的教程，快速完成搭建。">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="与ES的交互实践数据格式我们ES之间的交互，需要使用JSON数据格式，如下可以表示一个用户的一个doc  {    “email”:      “john@smith.com“,    “first_name”: “John”,    “last_name”:  “Smith”,    “info”: {&amp;emsp;&amp;emsp;”bio”: “Eco-warrior and defender of">
+<meta name="keywords" content="ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo搭建教程与心得">
-<meta property="og:url" content="http://yoursite.com/2019/01/30/Hexo搭建教程与心得-1/index.html">
+<meta property="og:title" content="ElasticSearch学习笔记心得（三）">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/asticSearch学习笔记心得（三）/index.html">
 <meta property="og:site_name" content="我的小博客，时尚最时尚">
-<meta property="og:description" content="关于HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 Hexo官网 提供的教程，快速完成搭建。">
+<meta property="og:description" content="与ES的交互实践数据格式我们ES之间的交互，需要使用JSON数据格式，如下可以表示一个用户的一个doc  {    “email”:      “john@smith.com“,    “first_name”: “John”,    “last_name”:  “Smith”,    “info”: {&amp;emsp;&amp;emsp;”bio”: “Eco-warrior and defender of">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-31T16:10:48.766Z">
+<meta property="og:updated_time" content="2019-03-12T10:56:02.983Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo搭建教程与心得">
-<meta name="twitter:description" content="关于HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 Hexo官网 提供的教程，快速完成搭建。">
+<meta name="twitter:title" content="ElasticSearch学习笔记心得（三）">
+<meta name="twitter:description" content="与ES的交互实践数据格式我们ES之间的交互，需要使用JSON数据格式，如下可以表示一个用户的一个doc  {    “email”:      “john@smith.com“,    “first_name”: “John”,    “last_name”:  “Smith”,    “info”: {&amp;emsp;&amp;emsp;”bio”: “Eco-warrior and defender of">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/30/Hexo搭建教程与心得-1/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/11/asticSearch学习笔记心得（三）/">
 
 
 
 
 
-  <title>Hexo搭建教程与心得 | 我的小博客，时尚最时尚</title>
+  <title>ElasticSearch学习笔记心得（三） | 我的小博客，时尚最时尚</title>
   
 
 
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/30/Hexo搭建教程与心得-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/asticSearch学习笔记心得（三）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="干锅鱼">
@@ -277,7 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo搭建教程与心得</h1>
+          <h1 class="post-title" itemprop="name headline">ElasticSearch学习笔记心得（三）</h1>
         
 
         <div class="post-meta">
@@ -289,8 +289,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-30T10:58:00+08:00">
-                2019-01-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-11T11:17:00+08:00">
+                2019-03-11
               </time>
             
 
@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-01T00:10:48+08:00">
-                2019-02-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-12T18:56:02+08:00">
+                2019-03-12
               </time>
             
           </span>
@@ -326,6 +326,17 @@
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/技术/" itemprop="url" rel="index">
                     <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -366,36 +377,90 @@
       
 
       
-        <h1 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<p>由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官网</a> 提供的教程，快速完成搭建。</p>
+        <h1 id="与ES的交互实践"><a href="#与ES的交互实践" class="headerlink" title="与ES的交互实践"></a>与ES的交互实践</h1><h3 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h3><p>我们ES之间的交互，需要使用JSON数据格式，如下可以表示一个用户的一个doc</p>
+<blockquote>
+<p>{<br>    “email”:      “<a href="mailto:john@smith.com" target="_blank" rel="noopener">john@smith.com</a>“,<br>    “first_name”: “John”,<br>    “last_name”:  “Smith”,<br>    “info”: {<br>&emsp;&emsp;”bio”: “Eco-warrior and defender of the weak”,<br>&emsp;&emsp;”age”: 25,<br>&emsp;&emsp;”interests”: [ “dolphins”, “whales” ]<br>&emsp;&emsp;},<br>    “join_date”: “2014/05/01”<br>}</p>
+</blockquote>
 <a id="more"></a>
-<h1 id="部署到Github-Pages"><a href="#部署到Github-Pages" class="headerlink" title="部署到Github Pages"></a>部署到Github Pages</h1><p>按照Hexo官网的文档搭建好自己的博客以后，就可以在本地访问自己的博客了，但是想要让其他人也看到，还需要将自己的Hexo部署到服务器上。这里我选择了Github Pages，第一因为其是免费的且部署起来很方便，其次它和Github有着很好的联动性，很适合将自己的代码和博客关联起来。</p>
+<h3 id="RestFul-API"><a href="#RestFul-API" class="headerlink" title="RestFul API"></a>RestFul API</h3><h4 id="索引-Index"><a href="#索引-Index" class="headerlink" title="索引-Index"></a>索引-Index</h4><ol>
+<li><p>创建索引</p>
+<blockquote>
+<p>PUT /my_index<br>{<br> “settings”: { … any settings … },<br> “mappings”: {<br>  “type_one”: { … any mappings … },<br> },<br>“aliases” : {…}<br>}</p>
+</blockquote>
+<h6 id="settings"><a href="#settings" class="headerlink" title="settings"></a>settings</h6><p>这边有非常多的参数可以设置，不过官方是不建议修改的。常见需要改的就俩</p>
+<ul>
+<li>number_of_shards<br>每个索引的主分片数，默认值是 5 。这个配置在索引创建后不能修改。</li>
+<li>number_of_replicas<br>每个主分片的副本数，默认值是 1 。对于活动的索引库，这个配置可以随时修改。</li>
+</ul>
+<h6 id="mappings"><a href="#mappings" class="headerlink" title="mappings"></a>mappings</h6><p>每个文档都有type，每种type都会有自己的mapping。mapping定义了type的field，每个field的数据类型，以及es如何处理这些field。</p>
+<p> 数据类型 (field)</p>
+<ul>
+<li><p>字符串 string<br>text<br>keyword</p>
+</li>
+<li><p>数字</p>
+<p>long integer short byte double float half_float scaled_float</p>
+</li>
+<li><p>布尔型 boolean</p>
+</li>
+<li><p>日期 date<br>range<br> integer_range<br> float_range<br> long_range<br> double_range<br> date_range</p>
+</li>
+<li><p>array</p>
+</li>
+<li>object</li>
+</ul>
+</li>
+</ol>
+<h4 id="文档-Document"><a href="#文档-Document" class="headerlink" title="文档-Document"></a>文档-Document</h4><p>文档是可以被序列化为包含键值对的 JSON 对象。</p>
 <ol>
-<li><p>创建自己在GitHub上的Github Pages<br>在gitbug上创建Github Pages和创建普通的repository一样，只不过需要将其名称设置为特定的格式：username.github.io , 其username就是你的gitbug账号了。</p>
+<li><p>创建文档<br>如果我们想要将上面的user加入到ES中成为能被索引的文档，可以使用创建文档的RestFul API</p>
+<blockquote>
+<p>curl -XPUT ‘localhost:9200/megacorp/employee/1’ -d<br>‘{<br> “first_name” : “John”,<br> “last_name” :  “Smith”,<br> “age” :        25,<br> “about” :      “I love to go rock climbing”,<br> “interests”: [ “sports”, “music” ]<br>}’</p>
+</blockquote>
+<p>为了方便书写，我们用以后都用简写形式来表示，上面的命令，简写为：</p>
+<blockquote>
+<p>PUT /megacorp/employee/1<br>{<br> “first_name” : “John”,<br> “last_name” :  “Smith”,<br> “age” :        25,<br> “about” :      “I love to go rock climbing”,<br> “interests”: [ “sports”, “music” ]<br>}</p>
+</blockquote>
 </li>
-<li><p>安装Hexo部署至GitHub Pages的插件<br>在终端命令行输入：npm install hexo-deployer-git –save ,完成插件安装</p>
+<li><p>获取文档<br>想要获取我们刚才创建的文档，十分简单：</p>
+<blockquote>
+<p>GET /megacorp/employee/1</p>
+</blockquote>
+<p>该语句执行后，可以看到ES的返回数据如下：</p>
+<blockquote>
+<p>{<br>“_index” :   “megacorp”,<br>“_type” :    “employee”,<br>“_id” :      “1”,<br>“_version” : 1,<br>“found” :    true,<br>“_source” :  {<br>   “first_name” :  “John”,<br>   “last_name” :   “Smith”,<br>   “age” :         25,<br>   “about” :       “I love to go rock climbing”,<br>   “interests”:  [ “sports”, “music” ]<br>}<br>}</p>
+</blockquote>
 </li>
-<li><p>Hexo配置文件修改<br>在Hexo根目录下找到配置文件_config.yml并打开，修改其中关于部署的配置项：</p>
+<li><p>删除文档</p>
+<blockquote>
+<p>DELETE /megacorp/employee/1</p>
+</blockquote>
+<p>这也就是简单的RestFul接口，不需要多做解释</p>
+</li>
+<li><p>稍微复杂的查询</p>
+<blockquote>
+<p>GET /megacorp/employee/_search?q=last_name:Smith</p>
+</blockquote>
+<p>这里使用了查询字符串 （<em>query-string</em>） 搜索，我们仍然在请求路径中使用 _search 端点，并将查询本身赋值给参数 q= 。返回结果给出了所有的 Smith</p>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository url&gt; </span><br><span class="line">  branch: [branch] </span><br><span class="line">  message: [message]</span><br></pre></td></tr></table></figure>
-<p><strong><em>参数说明  </em></strong><br><strong>type：</strong> 部署类型，这里由于是部署在GitHub Pages上，所以只能填写git<br><strong>repo：</strong> 你的GitHub Pages绝对地址，如<a href="https://github.com/username/username.github.io" target="_blank" rel="noopener">https://github.com/username/username.github.io</a><br><strong>branch:</strong> 作为博客的发布分支，每次部署时，你的本地代码都被同步到这个分支上，GitHub Pages也将展示这个分支的内容<br><strong>message:</strong> 自定义提交信息 </p>
-<blockquote>
-<p>之前GitHub Pages可以选择任意分支作为发布分支，但是我部署的时候，在原先选择发布分支的地方，看到了 “User pages must be built from the master branch.”提示，也就是说现在只能将master分支作为发布分支，所以在配置文件中，你应该把branch:设置成 master</p>
-</blockquote>
-<ol start="4">
-<li>部署至GitHub Pages<br>在完成以上步骤后，依次在终端命令行执行以下脚本，即可将你的本地Hexo部署到GitHub Pages上，之后只需要通过浏览器访问你的GitHub Pages地址，就能看到博客了！</li>
-</ol>
-<h1 id="关于主题"><a href="#关于主题" class="headerlink" title="关于主题"></a>关于主题</h1><p>Hexo的主题可以看成是官方帮你实现的博客框架，现在有有很优秀的开源主题都放在gitbug上，其中<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NexT</a>是一款广受好评的主题，其下有4款不同的风格可供选择，当然你也可以搜索更多的主题，选择你喜欢的布局与风格，这里只介绍如何使用NexT主题，其他主题的使用方式大同小异。  </p>
-<p>首先，你需要把NexT主题下载到你的Hexo根目录下的themes文件夹中，这里推荐直接使用git来pull，在命令行输入如下脚本即可（执行的目录在Hexo根目录下）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>然后，你需要修改根目录下的配置文件_config.yml，将主题设置为NexT<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure></p>
-<p>最后，在命令行依次执行：hexo g 和 hexo d ，即可将主题应用到博客，并部署到GitHub Pages</p>
-<h1 id="关于版本管理"><a href="#关于版本管理" class="headerlink" title="关于版本管理"></a>关于版本管理</h1><p>众所周知，Hexo部署到GitHub的分支上作为博客内容的文件，是由Hexo根据元数据处理后生成的各种html、css、js，它们通常保存在Hexo根目录下的public文件夹下。而当你想要在另一台电脑上编辑你的博客内容时，你必须在该电脑上pull所有的元数据，然后再编写你的 .md 文件，并通过熟悉的hexo g来编译（渲染）生成public文件夹下的内容。因此，把所有元数据上传至GitHub十分必要，这里可以在你原来的“master”分支之外，再新建一个“meta”分支，作为元数据存放，这样一来，你的博客也正是加入了git版本管理中~~O(∩_∩)O。</p>
-<blockquote>
-<p>也许你将整个根目录作为分支上传到github后会发现，github分支中的文件比你本地Hexo根目录下的文件要少，那是因为有些hexo元数据是默认不需要上传的，他们被.gitignore文件设置成了不上传，如果你一定要上传这些文件，可以在.gitignore中将他们去掉</p>
-</blockquote>
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>关于Hexo的搭建与部署，在网上已经有很多比较全面的教程，这里记录的是本人搭建此Blog的过程，以及遇到的各种问题。目前记录的还不够完整，我会在后续不断优化我的博客时，不断在此处补充相关内容。</p>
+<h3 id="关于查询字符串"><a href="#关于查询字符串" class="headerlink" title="关于查询字符串"></a>关于查询字符串</h3><p>  待补充~</p>
+<h3 id="关于文档的更新"><a href="#关于文档的更新" class="headerlink" title="关于文档的更新"></a>关于文档的更新</h3><p>在内部，Elasticsearch 已将旧文档标记为已删除，并增加一个全新的文档。 尽管你不能再对旧版本的文档进行访问，但它并不会立即消失。当继续索引更多的数据，Elasticsearch 会在后台清理这些已删除文档。</p>
+<p>在本章的后面部分，我们会介绍 update API, 这个 API 可以用于 partial updates to a document 。 虽然它似乎对文档直接进行了修改，但实际上 Elasticsearch 按前述完全相同方式执行以下过程：</p>
+<ul>
+<li>从旧文档构建 JSON</li>
+<li>更改该 JSON</li>
+<li>删除旧文档</li>
+<li>索引一个新文档</li>
+</ul>
+<p>唯一的区别在于, update API 仅仅通过一个客户端请求来实现这些步骤，而不需要单独的 get 和 index 请求。</p>
+<h3 id="如何区别更新和新建"><a href="#如何区别更新和新建" class="headerlink" title="如何区别更新和新建"></a>如何区别更新和新建</h3><p>有的时候我们需要新建文档，但是不小心使用的已有的id，则会导致老数据被更新的误操作，此时需要严格限制，只能进行create操作：</p>
+<p>第一种方法使用 op_type 查询 -字符串参数：<br>PUT /website/blog/123?op_type=create<br>{ … }</p>
+<p>第二种方法是在 URL 末端使用 /_create :<br>PUT /website/blog/123/_create<br>{ … }</p>
+<p>如果创建新文档的请求成功执行，Elasticsearch 会返回元数据和一个 201 Created 的 HTTP 响应码。</p>
+<p>另一方面，如果具有相同的 _index 、 _type 和 _id 的文档已经存在，Elasticsearch 将会返回 409 Conflict 响应码</p>
+<h3 id="多索引，多类型"><a href="#多索引，多类型" class="headerlink" title="多索引，多类型"></a>多索引，多类型</h3><p>经常的情况下，你 想在一个或多个特殊的索引并且在一个或者多个特殊的类型中进行搜索。我们可以通过在URL中指定特殊的索引和类型达到这种效果，如下所示：</p>
+<p>/_search<br>在所有的索引中搜索所有的类型<br>/gb/_search<br>在 gb 索引中搜索所有的类型<br>/gb,us/_search<br>在 gb 和 us 索引中搜索所有的文档<br>/g<em>,u</em>/_search<br>在任何以 g 或者 u 开头的索引中搜索所有的类型<br>/gb/user/_search<br>在 gb 索引中搜索 user 类型<br>/gb,us/user,tweet/_search<br>在 gb 和 us 索引中搜索 user 和 tweet 类型<br>/_all/user,tweet/_search<br>在所有的索引中搜索 user 和 tweet 类型</p>
+<h3 id="关于分页"><a href="#关于分页" class="headerlink" title="关于分页"></a>关于分页</h3><p>Elasticsearch 接受 from 和 size 参数：<br>size<br>显示应该返回的结果数量，默认是 10<br>from<br>显示应该跳过的初始结果数量，默认是 0</p>
 
       
     </div>
@@ -413,7 +478,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/ES/" rel="tag"># ES</a>
           
         </div>
       
@@ -426,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/29/hello-world/" rel="next" title="创世纪">
-                <i class="fa fa-chevron-left"></i> 创世纪
+              <a href="/2019/03/09/lasticSearch学习笔记心得（二）/" rel="next" title="ElasticSearch学习笔记心得（二）">
+                <i class="fa fa-chevron-left"></i> ElasticSearch学习笔记心得（二）
               </a>
             
           </div>
@@ -436,8 +501,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/31/Hexo博客优化之路（一）/" rel="prev" title="Hexo博客优化之路（一）">
-                Hexo博客优化之路（一） <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/11/lasticSearch学习笔记心得（四）/" rel="prev" title="ElasticSearch学习笔记心得（四）">
+                ElasticSearch学习笔记心得（四） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -582,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Hexo"><span class="nav-text">关于Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署到Github-Pages"><span class="nav-text">部署到Github Pages</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于主题"><span class="nav-text">关于主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于版本管理"><span class="nav-text">关于版本管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PS"><span class="nav-text">PS</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#与ES的交互实践"><span class="nav-text">与ES的交互实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据格式"><span class="nav-text">数据格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RestFul-API"><span class="nav-text">RestFul API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#索引-Index"><span class="nav-text">索引-Index</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#settings"><span class="nav-text">settings</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#mappings"><span class="nav-text">mappings</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档-Document"><span class="nav-text">文档-Document</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于查询字符串"><span class="nav-text">关于查询字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于文档的更新"><span class="nav-text">关于文档的更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何区别更新和新建"><span class="nav-text">如何区别更新和新建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多索引，多类型"><span class="nav-text">多索引，多类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于分页"><span class="nav-text">关于分页</span></a></li></ol></div>
             
 
           </div>

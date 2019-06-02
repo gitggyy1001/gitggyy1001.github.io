@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,">
+  <meta name="keywords" content="ES,">
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="关于HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 Hexo官网 提供的教程，快速完成搭建。">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="如何与ES交互由于ES是用JAVA语言编写的，它很自然的提供的对JAVA API的支持，代码中你可以使用 Elasticsearch 内置的两个客户端：  节点客户端（Node client）节点客户端作为一个非数据节点加入到本地集群中。换句话说，它本身不保存任何数据，但是它知道数据在集群中的哪个节点中，并且可以把请求转发到正确的节点。  传输客户端（Transport client）轻量级的传输">
+<meta name="keywords" content="ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo搭建教程与心得">
-<meta property="og:url" content="http://yoursite.com/2019/01/30/Hexo搭建教程与心得-1/index.html">
+<meta property="og:title" content="ElasticSearch学习笔记心得（二）">
+<meta property="og:url" content="http://yoursite.com/2019/03/09/lasticSearch学习笔记心得（二）/index.html">
 <meta property="og:site_name" content="我的小博客，时尚最时尚">
-<meta property="og:description" content="关于HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 Hexo官网 提供的教程，快速完成搭建。">
+<meta property="og:description" content="如何与ES交互由于ES是用JAVA语言编写的，它很自然的提供的对JAVA API的支持，代码中你可以使用 Elasticsearch 内置的两个客户端：  节点客户端（Node client）节点客户端作为一个非数据节点加入到本地集群中。换句话说，它本身不保存任何数据，但是它知道数据在集群中的哪个节点中，并且可以把请求转发到正确的节点。  传输客户端（Transport client）轻量级的传输">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-31T16:10:48.766Z">
+<meta property="og:updated_time" content="2019-03-19T06:26:28.083Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo搭建教程与心得">
-<meta name="twitter:description" content="关于HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 Hexo官网 提供的教程，快速完成搭建。">
+<meta name="twitter:title" content="ElasticSearch学习笔记心得（二）">
+<meta name="twitter:description" content="如何与ES交互由于ES是用JAVA语言编写的，它很自然的提供的对JAVA API的支持，代码中你可以使用 Elasticsearch 内置的两个客户端：  节点客户端（Node client）节点客户端作为一个非数据节点加入到本地集群中。换句话说，它本身不保存任何数据，但是它知道数据在集群中的哪个节点中，并且可以把请求转发到正确的节点。  传输客户端（Transport client）轻量级的传输">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/30/Hexo搭建教程与心得-1/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/09/lasticSearch学习笔记心得（二）/">
 
 
 
 
 
-  <title>Hexo搭建教程与心得 | 我的小博客，时尚最时尚</title>
+  <title>ElasticSearch学习笔记心得（二） | 我的小博客，时尚最时尚</title>
   
 
 
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/30/Hexo搭建教程与心得-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/lasticSearch学习笔记心得（二）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="干锅鱼">
@@ -277,7 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo搭建教程与心得</h1>
+          <h1 class="post-title" itemprop="name headline">ElasticSearch学习笔记心得（二）</h1>
         
 
         <div class="post-meta">
@@ -289,8 +289,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-30T10:58:00+08:00">
-                2019-01-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T17:27:00+08:00">
+                2019-03-09
               </time>
             
 
@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-01T00:10:48+08:00">
-                2019-02-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-19T14:26:28+08:00">
+                2019-03-19
               </time>
             
           </span>
@@ -326,6 +326,17 @@
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/技术/" itemprop="url" rel="index">
                     <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -366,36 +377,84 @@
       
 
       
-        <h1 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<p>由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官网</a> 提供的教程，快速完成搭建。</p>
+        <h1 id="如何与ES交互"><a href="#如何与ES交互" class="headerlink" title="如何与ES交互"></a>如何与ES交互</h1><p>由于ES是用JAVA语言编写的，它很自然的提供的对JAVA API的支持，代码中你可以使用 Elasticsearch 内置的两个客户端：</p>
+<ul>
+<li><p>节点客户端（Node client）<br>节点客户端作为一个非数据节点加入到本地集群中。换句话说，它本身不保存任何数据，但是它知道数据在集群中的哪个节点中，并且可以把请求转发到正确的节点。</p>
+</li>
+<li><p>传输客户端（Transport client）<br>轻量级的传输客户端可以将请求发送到远程集群。它本身不加入集群，但是它可以将请求转发到集群中的一个节点上。</p>
+</li>
+</ul>
 <a id="more"></a>
-<h1 id="部署到Github-Pages"><a href="#部署到Github-Pages" class="headerlink" title="部署到Github Pages"></a>部署到Github Pages</h1><p>按照Hexo官网的文档搭建好自己的博客以后，就可以在本地访问自己的博客了，但是想要让其他人也看到，还需要将自己的Hexo部署到服务器上。这里我选择了Github Pages，第一因为其是免费的且部署起来很方便，其次它和Github有着很好的联动性，很适合将自己的代码和博客关联起来。</p>
-<ol>
-<li><p>创建自己在GitHub上的Github Pages<br>在gitbug上创建Github Pages和创建普通的repository一样，只不过需要将其名称设置为特定的格式：username.github.io , 其username就是你的gitbug账号了。</p>
-</li>
-<li><p>安装Hexo部署至GitHub Pages的插件<br>在终端命令行输入：npm install hexo-deployer-git –save ,完成插件安装</p>
-</li>
-<li><p>Hexo配置文件修改<br>在Hexo根目录下找到配置文件_config.yml并打开，修改其中关于部署的配置项：</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository url&gt; </span><br><span class="line">  branch: [branch] </span><br><span class="line">  message: [message]</span><br></pre></td></tr></table></figure>
-<p><strong><em>参数说明  </em></strong><br><strong>type：</strong> 部署类型，这里由于是部署在GitHub Pages上，所以只能填写git<br><strong>repo：</strong> 你的GitHub Pages绝对地址，如<a href="https://github.com/username/username.github.io" target="_blank" rel="noopener">https://github.com/username/username.github.io</a><br><strong>branch:</strong> 作为博客的发布分支，每次部署时，你的本地代码都被同步到这个分支上，GitHub Pages也将展示这个分支的内容<br><strong>message:</strong> 自定义提交信息 </p>
 <blockquote>
-<p>之前GitHub Pages可以选择任意分支作为发布分支，但是我部署的时候，在原先选择发布分支的地方，看到了 “User pages must be built from the master branch.”提示，也就是说现在只能将master分支作为发布分支，所以在配置文件中，你应该把branch:设置成 master</p>
+<p>两个 Java 客户端都是通过 9300 端口并使用 Elasticsearch 的原生 传输 协议和集群交互。</p>
 </blockquote>
-<ol start="4">
-<li>部署至GitHub Pages<br>在完成以上步骤后，依次在终端命令行执行以下脚本，即可将你的本地Hexo部署到GitHub Pages上，之后只需要通过浏览器访问你的GitHub Pages地址，就能看到博客了！</li>
-</ol>
-<h1 id="关于主题"><a href="#关于主题" class="headerlink" title="关于主题"></a>关于主题</h1><p>Hexo的主题可以看成是官方帮你实现的博客框架，现在有有很优秀的开源主题都放在gitbug上，其中<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NexT</a>是一款广受好评的主题，其下有4款不同的风格可供选择，当然你也可以搜索更多的主题，选择你喜欢的布局与风格，这里只介绍如何使用NexT主题，其他主题的使用方式大同小异。  </p>
-<p>首先，你需要把NexT主题下载到你的Hexo根目录下的themes文件夹中，这里推荐直接使用git来pull，在命令行输入如下脚本即可（执行的目录在Hexo根目录下）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>然后，你需要修改根目录下的配置文件_config.yml，将主题设置为NexT<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure></p>
-<p>最后，在命令行依次执行：hexo g 和 hexo d ，即可将主题应用到博客，并部署到GitHub Pages</p>
-<h1 id="关于版本管理"><a href="#关于版本管理" class="headerlink" title="关于版本管理"></a>关于版本管理</h1><p>众所周知，Hexo部署到GitHub的分支上作为博客内容的文件，是由Hexo根据元数据处理后生成的各种html、css、js，它们通常保存在Hexo根目录下的public文件夹下。而当你想要在另一台电脑上编辑你的博客内容时，你必须在该电脑上pull所有的元数据，然后再编写你的 .md 文件，并通过熟悉的hexo g来编译（渲染）生成public文件夹下的内容。因此，把所有元数据上传至GitHub十分必要，这里可以在你原来的“master”分支之外，再新建一个“meta”分支，作为元数据存放，这样一来，你的博客也正是加入了git版本管理中~~O(∩_∩)O。</p>
+<p>所有其他语言可以使用 RESTful API 通过端口 9200 和 Elasticsearch 进行通信,其使用的是Json格式数据，并在HTTP协议上进行传输。</p>
+<p>一个 Elasticsearch 请求和任何 HTTP 请求一样由若干相同的部件组成：</p>
+<pre><code>curl -X&lt;VERB&gt; &apos;&lt;PROTOCOL&gt;://&lt;HOST&gt;:&lt;PORT&gt;/&lt;PATH&gt;?&lt;QUERY_STRING&gt;&apos; -d &apos;&lt;BODY&gt;&apos; 
+</code></pre><style>
+table th:first-of-type {
+    width: 100px;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VERB</td>
+<td style="text-align:center">适当的 HTTP 方法 或 谓词 : GET<code>、</code>POST<code>、</code>PUT<code>、</code>HEAD 或者 <code>DELETE</code>。</td>
+</tr>
+<tr>
+<td>PROTOCOL</td>
+<td style="text-align:center">http 或者 https<code>（如果你在 Elasticsearch 前面有一个</code>https 代理）</td>
+</tr>
+<tr>
+<td>HOST</td>
+<td style="text-align:center">Elasticsearch 集群中任意节点的主机名，或者用 localhost 代表本地机器上的节点。</td>
+</tr>
+<tr>
+<td>PORT</td>
+<td style="text-align:center">运行 Elasticsearch HTTP 服务的端口号，默认是 9200 。</td>
+</tr>
+<tr>
+<td>PATH</td>
+<td style="text-align:center">API 的终端路径（例如 _count 将返回集群中文档数量）。Path 可能包含多个组件，例如：_cluster/stats 和 _nodes/stats/jvm </td>
+</tr>
+<tr>
+<td>QUERY_STRING</td>
+<td style="text-align:center">任意可选的查询字符串参数 (例如 ?pretty 将格式化地输出 JSON 返回值，使其更容易阅读)</td>
+</tr>
+<tr>
+<td>BODY</td>
+<td style="text-align:center">一个 JSON 格式的请求体 (如果请求需要的话)</td>
+</tr>
+</tbody>
+</table>
+<p>例如，计算集群中文档的数量，我们可以用这个:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl -XGET &apos;http://localhost:9200/_count?pretty&apos; -d &apos;</span><br><span class="line">&#123;</span><br><span class="line">    &quot;query&quot;: &#123;</span><br><span class="line">        &quot;match_all&quot;: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="ES基本术语与概念"><a href="#ES基本术语与概念" class="headerlink" title="ES基本术语与概念"></a>ES基本术语与概念</h1><p>由于本篇文章，并不是要详细介绍整个ES的架构与底层实现细节，而是想要让初学者快速入门并将ES使用起来，所以并不会有太多概念、框架上的介绍，但是在真正开始使用ES之前，有一些基本的概念还是需要知道，这对于我们把握ES整体情况以及理解后面的知识，都起到了很关键的作用。</p>
+<p>Elastic 本质上是一个分布式数据库，允许多台服务器协同工作，每台服务器可以运行多个 Elastic 实例。<br>单个 Elastic 实例称为一个节点（node）。一组节点构成一个集群（cluster）。</p>
+<ul>
+<li><p>_index<br>一个 索引 应该是因共同的特性被分组到一起的文档集合。 例如，你可能存储所有的产品在索引 products中，而存储所有销售的交易到索引 sales 中。 虽然也允许存储不相关的数据到一个索引中，但这通常看作是一个反模式的做法。</p>
+</li>
+<li><p>_type编辑<br>数据可能在索引中只是松散的组合在一起，但是通常明确定义一些数据中的子分区是很有用的。 例如，所有的产品都放在一个索引中，但是你有许多不同的产品类别，比如 “electronics” 、 “kitchen” 和 “lawn-care”。<br>这些文档共享一种相同的（或非常相似）的模式：他们有一个标题、描述、产品代码和价格。他们只是正好属于“产品”下的一些子类。<br>Elasticsearch 公开了一个称为 types （类型）的特性，它允许您在索引中对数据进行逻辑分区。不同 types 的文档可能有不同的字段，但最好能够非常相似。 我们将在 类型和映射 中更多的讨论关于 types 的一些应用和限制。<br>一个 _type 命名可以是大写或者小写，但是不能以下划线或者句号开头，不应该包含逗号， 并且长度限制为256个字符. 我们使用 blog 作为类型名举例。</p>
+</li>
+<li><p>_id编辑<br>ID 是一个字符串， 当它和 _index 以及 _type 组合就可以唯一确定 Elasticsearch 中的一个文档。 当你创建一个新的文档，要么提供自己的 _id ，要么让 Elasticsearch 帮你生成。</p>
+</li>
+</ul>
 <blockquote>
-<p>也许你将整个根目录作为分支上传到github后会发现，github分支中的文件比你本地Hexo根目录下的文件要少，那是因为有些hexo元数据是默认不需要上传的，他们被.gitignore文件设置成了不上传，如果你一定要上传这些文件，可以在.gitignore中将他们去掉</p>
+<p>它们可以理解为文档的元数据：<br>一个文档不仅仅包含它的数据 ，也包含 元数据 —— 有关 文档的信息。 三个必须的元数据元素如下：</p>
+<ul>
+<li>_index<br>文档在哪存放</li>
+<li>_type<br>文档表示的对象类别</li>
+<li>_id<br>文档唯一标识</li>
+</ul>
 </blockquote>
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>关于Hexo的搭建与部署，在网上已经有很多比较全面的教程，这里记录的是本人搭建此Blog的过程，以及遇到的各种问题。目前记录的还不够完整，我会在后续不断优化我的博客时，不断在此处补充相关内容。</p>
 
       
     </div>
@@ -413,7 +472,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/ES/" rel="tag"># ES</a>
           
         </div>
       
@@ -426,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/29/hello-world/" rel="next" title="创世纪">
-                <i class="fa fa-chevron-left"></i> 创世纪
+              <a href="/2019/03/09/asticSearch学习笔记心得（一）/" rel="next" title="ElasticSearch学习笔记心得（一）">
+                <i class="fa fa-chevron-left"></i> ElasticSearch学习笔记心得（一）
               </a>
             
           </div>
@@ -436,8 +495,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/31/Hexo博客优化之路（一）/" rel="prev" title="Hexo博客优化之路（一）">
-                Hexo博客优化之路（一） <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/11/asticSearch学习笔记心得（三）/" rel="prev" title="ElasticSearch学习笔记心得（三）">
+                ElasticSearch学习笔记心得（三） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -582,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Hexo"><span class="nav-text">关于Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署到Github-Pages"><span class="nav-text">部署到Github Pages</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于主题"><span class="nav-text">关于主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于版本管理"><span class="nav-text">关于版本管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PS"><span class="nav-text">PS</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何与ES交互"><span class="nav-text">如何与ES交互</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ES基本术语与概念"><span class="nav-text">ES基本术语与概念</span></a></li></ol></div>
             
 
           </div>

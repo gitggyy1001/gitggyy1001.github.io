@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/ring学习笔记与心得（二）-2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/ring学习笔记与心得（六）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="干锅鱼">
@@ -279,7 +279,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/04/ring学习笔记与心得（二）-2/" itemprop="url">Spring学习笔记与心得（二）</a></h1>
+                <a class="post-title-link" href="/2019/04/12/ring学习笔记与心得（六）/" itemprop="url">Spring学习笔记与心得（六）</a></h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T17:42:01+08:00">
-                2019-03-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-12T21:40:57+08:00">
+                2019-04-12
               </time>
             
 
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T18:07:41+08:00">
-                2019-03-04
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-22T22:48:49+08:00">
+                2019-04-22
               </time>
             
           </span>
@@ -342,25 +342,165 @@
 
       
         
-          <h3 id="第二章：装配Bean"><a href="#第二章：装配Bean" class="headerlink" title="第二章：装配Bean"></a>第二章：装配Bean</h3><p>&emsp;&emsp;本章主要介绍了Bean的声明、注入与生命周期。</p>
-<h5 id="1、Bean容器装配机制"><a href="#1、Bean容器装配机制" class="headerlink" title="1、Bean容器装配机制"></a>1、Bean容器装配机制</h5><p>&emsp;&emsp;Spring提供了三种Bean的装配机制</p>
-<blockquote>
-<p>在XML中进行显示配置</p>
-</blockquote>
-<blockquote>
-<p>在JAVA中进行显示配置</p>
-</blockquote>
-<blockquote>
-<p>Bean的发现机制与自动装配</p>
-</blockquote>
-<p>&emsp;&emsp;在Spring中以@Component注解的类，会被视为Spring的组件类，默认在Spring应用上下文创建过程中，会将其初始化并 纳入Bean容器。但是必须要注意，使用@ComponentScan来启动组件扫描，以便Spring知道你需要将哪些包下的Bean纳入到容器中管理。</p>
-<p>开启组件扫描有2中方式：XML方式和JAVA配置方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<h6 id="关于Bean初始化时机"><a href="#关于Bean初始化时机" class="headerlink" title="关于Bean初始化时机"></a>关于Bean初始化时机</h6><p>&emsp;&emsp;1.如果bean的scope是singleton的，并且lazy-init为false（默认是false，所以可以不用设置），则ApplicationContext启动的时候就实例化该Bean，并且将实例化的Bean放在一个map结构的缓存中，下次再使用该Bean的时候，直接从这个缓存中取<br>&emsp;&emsp;2.如果bean的scope是singleton的，并且lazy-init为true，则该Bean的实例化是在第一次使用该Bean的时候进行实例化<br>&emsp;&emsp;3.如果bean的scope是prototype的，则该Bean的实例化是在第一次使用该Bean的时候进行实例化</p>
-</blockquote>
+          
+            <h3 id="模板与回调"><a href="#模板与回调" class="headerlink" title="模板与回调"></a>模板与回调</h3><p>Spring将数据访问过程中，固定和可变的部分，分为2个不同的类：模板和回调</p>
+<p>Spring的模板类处理：事务控制、资源管理和异常处理</p>
+<p>回调处理：语句、绑定参数、结果集整理</p>
+<h3 id="配置数据源"><a href="#配置数据源" class="headerlink" title="配置数据源"></a>配置数据源</h3><ul>
+<li><p>JNDI</p>
+<p>使用JNDI配置数据源的好处，是可以在应用程序之外管理数据源。</p>
+<p>在服务器中管理的数据源，通常以池的方式组织</p>
+<p>在xml中将jndi中配置的数据源，装载到spring中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;jee:jndi-lookup id=&quot;dataSource&quot; jndi-name=&quot;/jdbc/ds&quot; </span><br><span class="line">resource-ref=&quot;true&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>resource-ref=”true” 时，会自动在jndi-name的值上，加入前缀：”java:comp/env/“</p>
+</li>
+<li><p>数据库连接池</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;datasource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot; </span><br><span class="line">p:driverClassName=&quot;org.h2.Driver&quot;</span><br><span class="line">p:url=&quot;...&quot;</span><br><span class="line">p:username=&quot;&quot;</span><br><span class="line">p:password=&quot;&quot;</span><br><span class="line">p:initialSize=&quot;5&quot;</span><br><span class="line">p:maxActive=&quot;10&quot;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><h6 id="jdbc模板"><a href="#jdbc模板" class="headerlink" title="jdbc模板"></a>jdbc模板</h6><p>  spring提供了三种jdbc模板，由于后续优化合并，现在只需要使用jdbcTemplate即可</p>
+<ul>
+<li>申明模板<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public JdbcTemplate jdbctemplate(DataSouce datasource)</span><br><span class="line">&#123;</span><br><span class="line">		return new JdbcTemplate(datasouce);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>  只需要将DataSource通过构造器参数，注入进去即可</p>
+<p>  一般我们使用jdbcOptions接口中的方法，来使用jdbcTemplate：</p>
+<p>  jdbcOptions.update(“update *** set age = ?”, age);</p>
+<p>  jdbcOptions.update(“select <em> from **</em> where age = ?”, rowMapper , age); 注意：rowMapper是实现了RowMapper接口的，将返回构建成所需对象的自己实现的类。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/ring学习笔记与心得（五）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="干锅鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的小博客，时尚最时尚">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/02/ring学习笔记与心得（五）/" itemprop="url">Spring学习笔记与心得（五）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-02T22:27:54+08:00">
+                2019-04-02
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-12T21:29:34+08:00">
+                2019-04-12
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Web中的Spring"><a href="#Web中的Spring" class="headerlink" title="Web中的Spring"></a>Web中的Spring</h1><h3 id="请求在SpringMVC中的流转"><a href="#请求在SpringMVC中的流转" class="headerlink" title="请求在SpringMVC中的流转"></a>请求在SpringMVC中的流转</h3><p><img src="/2019/04/02/ring学习笔记与心得（五）/requestFlow.png" alt="hello!"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/03/04/ring学习笔记与心得（二）-2/#more" rel="contents">
+            <a class="btn" href="/2019/04/02/ring学习笔记与心得（五）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -411,7 +551,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/pring学习笔记与心得（一）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/一次故障排查心得/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="干锅鱼">
@@ -430,7 +570,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/25/pring学习笔记与心得（一）/" itemprop="url">Spring学习笔记与心得（一）</a></h1>
+                <a class="post-title-link" href="/2019/03/26/一次故障排查心得/" itemprop="url">一次故障排查心得</a></h1>
         
 
         <div class="post-meta">
@@ -442,8 +582,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-25T20:06:10+08:00">
-                2019-02-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-26T11:42:00+08:00">
+                2019-03-26
               </time>
             
 
@@ -458,12 +598,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-08T14:16:42+08:00">
-                2019-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-26T14:17:57+08:00">
+                2019-03-26
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/故障分析/" itemprop="url" rel="index">
+                    <span itemprop="name">故障分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -493,11 +655,10 @@
 
       
         
-          <p><img src="/2019/02/25/pring学习笔记与心得（一）/malio.jpg" alt="hello!"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;本篇博客是本人在阅读《Spring实战（第四版）》时的读书笔记与一些感悟、总结，旨在能够通过记录博客的形式，把认为的重点和自己的一些想法保存下来，以便加深印象和以后的查阅。本人并不是什么大神，博客中可能会有错误的理解或观点，欢迎各位大佬拍砖！</p>
+          <h3 id="故障描述"><a href="#故障描述" class="headerlink" title="故障描述"></a>故障描述</h3><p>生产环境多线程程序，总是在运行一段时间后，运行变得十分缓慢，重启后又好了，但是每次出问题的间隔时间并不一定，且一般在业务量大的时候才会出现，业务量适中的情况下，很久都不会报错，如果是内存溢出，理论上即使业务量一般，累计较长时间的话，也会变慢且oom，但是并没有发生，所以需要分析其他原因。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/02/25/pring学习笔记与心得（一）/#more" rel="contents">
+            <a class="btn" href="/2019/03/26/一次故障排查心得/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -548,7 +709,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/31/Hexo博客优化之路（一）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/ring学习笔记与心得（四）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="干锅鱼">
@@ -567,7 +728,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/31/Hexo博客优化之路（一）/" itemprop="url">Hexo博客优化之路（一）</a></h1>
+                <a class="post-title-link" href="/2019/03/25/ring学习笔记与心得（四）/" itemprop="url">Spring学习笔记与心得（四）</a></h1>
         
 
         <div class="post-meta">
@@ -579,8 +740,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-31T15:05:00+08:00">
-                2019-01-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T20:40:49+08:00">
+                2019-03-25
               </time>
             
 
@@ -595,8 +756,181 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-01T00:23:28+08:00">
-                2019-02-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-02T22:23:49+08:00">
+                2019-04-02
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="面向切面的编程"><a href="#面向切面的编程" class="headerlink" title="面向切面的编程"></a>面向切面的编程</h1><h3 id="什么是AOP"><a href="#什么是AOP" class="headerlink" title="什么是AOP"></a>什么是AOP</h3><p>在我们的应用中，日志、安全、事务等都是横跨多个业务的，面向切面的编程（AOP）可以将这些模块视为横切关注点，一声明的方式，把这些功能定义在我们想要应用的地方。</p>
+<h3 id="AOP术语"><a href="#AOP术语" class="headerlink" title="AOP术语"></a>AOP术语</h3><ul>
+<li><p>通知</p>
+<p>切面的工作，被称为通知</p>
+<p>可以分为：前置通知、后置通知、返回通知。异常通知、环绕通知</p>
+</li>
+<li><p>连接点</p>
+<p>在应用执行过程中，插入切面的一个点，可以是调用方法、抛出异常等</p>
+</li>
+<li><p>切点<br>利用正则表达式，定义所有需要匹配的连接点</p>
+</li>
+<li><p>切面<br>切面是通知和切点的集合</p>
+</li>
+</ul>
+<h3 id="Spring对AOP的支持"><a href="#Spring对AOP的支持" class="headerlink" title="Spring对AOP的支持"></a>Spring对AOP的支持</h3><ol>
+<li>由于Spring AOP基于动态代理，所以它仅限于方法拦截（方法级别连接点）</li>
+<li>Spring在运行期，将切面织入到Bean中，具体方法是使用动态代理</li>
+<li>当代理拦截到目标方法的调用时，在调用前，会先执行切面逻辑</li>
+<li>直到应用需要被代理的Bean时，代理对象才会被创建</li>
+</ol>
+<h3 id="切点表达式"><a href="#切点表达式" class="headerlink" title="切点表达式"></a>切点表达式</h3><p>  execution ( * concert.Performance.perform(..) )</p>
+<p>  其中，execution表示，在方法执行时触发</p>
+<p>  *表示方法返回任意类型</p>
+<p>  concert.Performance.perform则是方法的全限定名</p>
+<p>  （..）是方法的参数</p>
+<p>  只有满足以上所有切点条件时，通知才会被织入到该连接点。</p>
+<h3 id="定义通知"><a href="#定义通知" class="headerlink" title="定义通知"></a>定义通知</h3><p>AspectJ提供了五个注解来定义通知：</p>
+<ul>
+<li>@After ： 通知方法在目标方法返回或抛出异常后调用<br>@AfterReturning  通知方法在目标方法返回后调用<br>@AfterThrowing 通知方法在目标方法抛出异常后调用<br>@Around 通知方法会将目标方法封装起来<br>@ Before 通知方法在目标方法调用前调用</li>
+</ul>
+<p>可以通过@Pointcut来定义可以重复使用的切点：</p>
+<p>@Pointcut(“execution(** concert.Performance.perform(..))”)<br>public void performance();</p>
+<p>@Before(“performance()”)<br>public void takessss(){<br>   …<br>}</p>
+<h3 id="启用自动代理"><a href="#启用自动代理" class="headerlink" title="启用自动代理"></a>启用自动代理</h3><p>1、在java配置类上，添加注解：@EnableAspectJ-AutoProxy<br>2、在xml文件中，配置：<a href="aop:aspectj-autoproxy" target="_blank" rel="noopener">aop:aspectj-autoproxy</a></p>
+<h3 id="环绕通知"><a href="#环绕通知" class="headerlink" title="环绕通知"></a>环绕通知</h3><p>环绕通知是最强大的通知，它让你可以把你的目标方法完全包装起来：</p>
+<p>@Around(“performace()”)<br>public void doSomething(ProceedingJoinPoint jp){<br>  doSomethingBefore();<br>  jp.proceed();<br>  doSomethingAfter();<br>  System.out.println(“ooooooooooooook”);<br>}</p>
+<h3 id="处理通知中的参数"><a href="#处理通知中的参数" class="headerlink" title="处理通知中的参数"></a>处理通知中的参数</h3><p>现在我们来看看，如何在切面的通知中，获取目标方法的参数：</p>
+<p>@Pointcut(“execution(** concert.Performance.perform(int)) &amp;&amp; args(number)”)<br>public void performance(int number);</p>
+<p>@Before(“performance(int number)”)<br>public void takessss(){<br>   System.out.println(number);<br>}</p>
+<h3 id="切面可以为Spring的Bean引入新方法"><a href="#切面可以为Spring的Bean引入新方法" class="headerlink" title="切面可以为Spring的Bean引入新方法"></a>切面可以为Spring的Bean引入新方法</h3><p>在Spring中，切面是实现了被代理Bean的所有方法的接口的代理。<br>在这个代理类（Proxy）中，我们可以调用其他Bean的方法，比如通知类的方法。</p>
+<p>我们通过：<br>@DeclareParents(value=”concert.Perfomance+”,<br>defaultImpl=Encoreable.class)<br>public void encoreable;</p>
+<p>这里，我们让所有concert.Perfomance的子类，都添加了encoreable接口，而其真正的实现类，则是Encoreable.class</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/19/pring学习笔记与心得（三）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="干锅鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的小博客，时尚最时尚">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/19/pring学习笔记与心得（三）/" itemprop="url">Spring学习笔记与心得（三）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T21:08:00+08:00">
+                2019-03-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-24T23:49:45+08:00">
+                2019-03-24
               </time>
             
           </span>
@@ -652,10 +986,16 @@
 
       
         
-          <h1 id="路漫漫其修远兮"><a href="#路漫漫其修远兮" class="headerlink" title="路漫漫其修远兮"></a>路漫漫其修远兮</h1><p>经过之前的Hexo基础搭建，我们已经拥有了一个简单的博客，接下来就是要根据自己喜好，将博客进行优化，通过修改主题的配置文件，添加插件等形式，使得博客内容更加丰富。</p>
+          <h1 id="Spring-Profile"><a href="#Spring-Profile" class="headerlink" title="Spring Profile"></a>Spring Profile</h1><p>场景：在一个测试环境下，使用的DataSource可能是配置的测试库的url，而当代码上到生产环境，则需要另外一个DataSource Bean，此时Spring提供了Profile来标记，某个Bean属于某个Profile，当要切换环境时，只需要激活相应的Profile即可，Spring只会创建指定激活的Profile中的Bean：</p>
+<blockquote>
+<p> 没有被Profile标记的Bean，无论如何都会被加载创建</p>
+</blockquote>
+<blockquote>
+<p> 测试：@Profile(“dev”)<br>  生产：@Profile(“prod”)  </p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/31/Hexo博客优化之路（一）/#more" rel="contents">
+            <a class="btn" href="/2019/03/19/pring学习笔记与心得（三）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -706,7 +1046,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/30/Hexo搭建教程与心得-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/asticSearch学习笔记心得（六）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="干锅鱼">
@@ -725,7 +1065,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/30/Hexo搭建教程与心得-1/" itemprop="url">Hexo搭建教程与心得</a></h1>
+                <a class="post-title-link" href="/2019/03/18/asticSearch学习笔记心得（六）/" itemprop="url">ElasticSearch学习笔记心得（六）</a></h1>
         
 
         <div class="post-meta">
@@ -737,8 +1077,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-30T10:58:00+08:00">
-                2019-01-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T19:51:00+08:00">
+                2019-03-18
               </time>
             
 
@@ -753,8 +1093,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-01T00:10:48+08:00">
-                2019-02-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-19T14:26:50+08:00">
+                2019-03-19
               </time>
             
           </span>
@@ -774,6 +1114,17 @@
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/技术/" itemprop="url" rel="index">
                     <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -810,11 +1161,10 @@
 
       
         
-          <h1 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<p>由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官网</a> 提供的教程，快速完成搭建。</p>
+          <h1 id="聚合深入"><a href="#聚合深入" class="headerlink" title="聚合深入"></a>聚合深入</h1><h3 id="多桶排序"><a href="#多桶排序" class="headerlink" title="多桶排序"></a>多桶排序</h3><p>默认的，桶会根据 doc_count 降序排列。我们可以通过order来重新设置排序条件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;size&quot; : 0,</span><br><span class="line">    &quot;aggs&quot; : &#123;</span><br><span class="line">        &quot;colors&quot; : &#123;</span><br><span class="line">            &quot;terms&quot; : &#123;</span><br><span class="line">              &quot;field&quot; : &quot;color&quot;,</span><br><span class="line">              &quot;order&quot;: &#123;</span><br><span class="line">                &quot;_count&quot; : &quot;asc&quot; </span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/30/Hexo搭建教程与心得-1/#more" rel="contents">
+            <a class="btn" href="/2019/03/18/asticSearch学习笔记心得（六）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -865,7 +1215,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/29/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/asticSearch学习笔记心得（五）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="干锅鱼">
@@ -884,7 +1234,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/29/hello-world/" itemprop="url">创世纪</a></h1>
+                <a class="post-title-link" href="/2019/03/12/asticSearch学习笔记心得（五）/" itemprop="url">ElasticSearch学习笔记心得（五）</a></h1>
         
 
         <div class="post-meta">
@@ -896,8 +1246,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-29T21:54:41+08:00">
-                2019-01-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-12T17:31:00+08:00">
+                2019-03-12
               </time>
             
 
@@ -912,12 +1262,45 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-01T00:10:56+08:00">
-                2019-02-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-18T19:49:40+08:00">
+                2019-03-18
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -947,10 +1330,528 @@
 
       
         
-          <h2 id="Let-there-be-light"><a href="#Let-there-be-light" class="headerlink" title="Let there be light"></a>Let there be light</h2><p>其实之前一直就想要开始写自己的博客，但是一方面因为懒，另一方面总是感觉找不到什么好写的，所以就一直拖到现在。最近偶然在公司技术群中，发现某些同事的博客写的很不错，所以就萌生了要把自己的博客也建立起来的想法，记录自己生活中的点滴，技术上的积累与些许人生感悟，权当是给当下混沌生活的一点光了吧~</p>
+          <h1 id="ES核心之聚合分析"><a href="#ES核心之聚合分析" class="headerlink" title="ES核心之聚合分析"></a>ES核心之聚合分析</h1><h3 id="Aggregations"><a href="#Aggregations" class="headerlink" title="Aggregations"></a>Aggregations</h3><p>Elasticsearch 有一个功能叫聚合（aggregations），允许我们基于数据生成一些精细的分析结果。聚合与 SQL 中的 GROUP BY 类似但更强大。</p>
+<p>一个简答的aggs：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;aggs&quot;: &#123;</span><br><span class="line">    &quot;all_interests&quot;: &#123;</span><br><span class="line">      &quot;terms&quot;: &#123; &quot;field&quot;: &quot;interests&quot; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/29/hello-world/#more" rel="contents">
+            <a class="btn" href="/2019/03/12/asticSearch学习笔记心得（五）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/lasticSearch学习笔记心得（四）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="干锅鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的小博客，时尚最时尚">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/11/lasticSearch学习笔记心得（四）/" itemprop="url">ElasticSearch学习笔记心得（四）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-11T14:23:00+08:00">
+                2019-03-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-18T14:15:50+08:00">
+                2019-03-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="更高级的ES查询：DSL"><a href="#更高级的ES查询：DSL" class="headerlink" title="更高级的ES查询：DSL"></a>更高级的ES查询：DSL</h1><p>之前介绍的Query-string 搜索，通过命令非常方便地进行临时性的即席搜索 ，但它有自身的局限性（参见 轻量 搜索 ）。Elasticsearch 提供一个丰富灵活的查询语言叫做 查询表达式（DSL） ， 它支持构建更加复杂和健壮的查询。</p>
+<h3 id="领域特定语言-（DSL）"><a href="#领域特定语言-（DSL）" class="headerlink" title="领域特定语言 （DSL）"></a>领域特定语言 （DSL）</h3><p>先给一个简单的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /megacorp/employee/_search</span><br><span class="line">&#123;</span><br><span class="line">    &quot;query&quot; : &#123;</span><br><span class="line">        &quot;match&quot; : &#123;</span><br><span class="line">            &quot;last_name&quot; : &quot;Smith&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/11/lasticSearch学习笔记心得（四）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/asticSearch学习笔记心得（三）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="干锅鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的小博客，时尚最时尚">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/11/asticSearch学习笔记心得（三）/" itemprop="url">ElasticSearch学习笔记心得（三）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-11T11:17:00+08:00">
+                2019-03-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-12T18:56:02+08:00">
+                2019-03-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="与ES的交互实践"><a href="#与ES的交互实践" class="headerlink" title="与ES的交互实践"></a>与ES的交互实践</h1><h3 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h3><p>我们ES之间的交互，需要使用JSON数据格式，如下可以表示一个用户的一个doc</p>
+<blockquote>
+<p>{<br>    “email”:      “<a href="mailto:john@smith.com" target="_blank" rel="noopener">john@smith.com</a>“,<br>    “first_name”: “John”,<br>    “last_name”:  “Smith”,<br>    “info”: {<br>&emsp;&emsp;”bio”: “Eco-warrior and defender of the weak”,<br>&emsp;&emsp;”age”: 25,<br>&emsp;&emsp;”interests”: [ “dolphins”, “whales” ]<br>&emsp;&emsp;},<br>    “join_date”: “2014/05/01”<br>}</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/11/asticSearch学习笔记心得（三）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/lasticSearch学习笔记心得（二）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="干锅鱼">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的小博客，时尚最时尚">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/09/lasticSearch学习笔记心得（二）/" itemprop="url">ElasticSearch学习笔记心得（二）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T17:27:00+08:00">
+                2019-03-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-19T14:26:28+08:00">
+                2019-03-19
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="如何与ES交互"><a href="#如何与ES交互" class="headerlink" title="如何与ES交互"></a>如何与ES交互</h1><p>由于ES是用JAVA语言编写的，它很自然的提供的对JAVA API的支持，代码中你可以使用 Elasticsearch 内置的两个客户端：</p>
+<ul>
+<li><p>节点客户端（Node client）<br>节点客户端作为一个非数据节点加入到本地集群中。换句话说，它本身不保存任何数据，但是它知道数据在集群中的哪个节点中，并且可以把请求转发到正确的节点。</p>
+</li>
+<li><p>传输客户端（Transport client）<br>轻量级的传输客户端可以将请求发送到远程集群。它本身不加入集群，但是它可以将请求转发到集群中的一个节点上。</p>
+</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/09/lasticSearch学习笔记心得（二）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -991,6 +1892,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1036,7 +1941,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1047,7 +1952,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1058,7 +1963,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

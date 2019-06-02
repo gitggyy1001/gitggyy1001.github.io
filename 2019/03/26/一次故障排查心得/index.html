@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,">
+  <meta name="keywords" content="JAVA,">
 
 
 
@@ -86,18 +86,21 @@
 
 
 
-<meta name="description" content="关于HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 Hexo官网 提供的教程，快速完成搭建。">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="故障描述生产环境多线程程序，总是在运行一段时间后，运行变得十分缓慢，重启后又好了，但是每次出问题的间隔时间并不一定，且一般在业务量大的时候才会出现，业务量适中的情况下，很久都不会报错，如果是内存溢出，理论上即使业务量一般，累计较长时间的话，也会变慢且oom，但是并没有发生，所以需要分析其他原因。">
+<meta name="keywords" content="JAVA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo搭建教程与心得">
-<meta property="og:url" content="http://yoursite.com/2019/01/30/Hexo搭建教程与心得-1/index.html">
+<meta property="og:title" content="一次故障排查心得">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/一次故障排查心得/index.html">
 <meta property="og:site_name" content="我的小博客，时尚最时尚">
-<meta property="og:description" content="关于HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 Hexo官网 提供的教程，快速完成搭建。">
+<meta property="og:description" content="故障描述生产环境多线程程序，总是在运行一段时间后，运行变得十分缓慢，重启后又好了，但是每次出问题的间隔时间并不一定，且一般在业务量大的时候才会出现，业务量适中的情况下，很久都不会报错，如果是内存溢出，理论上即使业务量一般，累计较长时间的话，也会变慢且oom，但是并没有发生，所以需要分析其他原因。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-31T16:10:48.766Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/一次故障排查心得/oom.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/一次故障排查心得/dump.png">
+<meta property="og:updated_time" content="2019-03-26T06:17:57.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo搭建教程与心得">
-<meta name="twitter:description" content="关于HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 Hexo官网 提供的教程，快速完成搭建。">
+<meta name="twitter:title" content="一次故障排查心得">
+<meta name="twitter:description" content="故障描述生产环境多线程程序，总是在运行一段时间后，运行变得十分缓慢，重启后又好了，但是每次出问题的间隔时间并不一定，且一般在业务量大的时候才会出现，业务量适中的情况下，很久都不会报错，如果是内存溢出，理论上即使业务量一般，累计较长时间的话，也会变慢且oom，但是并没有发生，所以需要分析其他原因。">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/26/一次故障排查心得/oom.png">
 
 
 
@@ -127,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/30/Hexo搭建教程与心得-1/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/26/一次故障排查心得/">
 
 
 
 
 
-  <title>Hexo搭建教程与心得 | 我的小博客，时尚最时尚</title>
+  <title>一次故障排查心得 | 我的小博客，时尚最时尚</title>
   
 
 
@@ -260,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/30/Hexo搭建教程与心得-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/一次故障排查心得/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="干锅鱼">
@@ -277,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo搭建教程与心得</h1>
+          <h1 class="post-title" itemprop="name headline">一次故障排查心得</h1>
         
 
         <div class="post-meta">
@@ -289,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-30T10:58:00+08:00">
-                2019-01-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-26T11:42:00+08:00">
+                2019-03-26
               </time>
             
 
@@ -305,8 +308,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-01T00:10:48+08:00">
-                2019-02-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-26T14:17:57+08:00">
+                2019-03-26
               </time>
             
           </span>
@@ -324,8 +327,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
+                  <a href="/categories/故障分析/" itemprop="url" rel="index">
+                    <span itemprop="name">故障分析</span>
                   </a>
                 </span>
 
@@ -366,37 +369,15 @@
       
 
       
-        <h1 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<p>由于Hexo中文文档已经十分完备，这里就不多做介绍，想要搭建自己的Hexo可以根据 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官网</a> 提供的教程，快速完成搭建。</p>
+        <h3 id="故障描述"><a href="#故障描述" class="headerlink" title="故障描述"></a>故障描述</h3><p>生产环境多线程程序，总是在运行一段时间后，运行变得十分缓慢，重启后又好了，但是每次出问题的间隔时间并不一定，且一般在业务量大的时候才会出现，业务量适中的情况下，很久都不会报错，如果是内存溢出，理论上即使业务量一般，累计较长时间的话，也会变慢且oom，但是并没有发生，所以需要分析其他原因。</p>
 <a id="more"></a>
-<h1 id="部署到Github-Pages"><a href="#部署到Github-Pages" class="headerlink" title="部署到Github Pages"></a>部署到Github Pages</h1><p>按照Hexo官网的文档搭建好自己的博客以后，就可以在本地访问自己的博客了，但是想要让其他人也看到，还需要将自己的Hexo部署到服务器上。这里我选择了Github Pages，第一因为其是免费的且部署起来很方便，其次它和Github有着很好的联动性，很适合将自己的代码和博客关联起来。</p>
-<ol>
-<li><p>创建自己在GitHub上的Github Pages<br>在gitbug上创建Github Pages和创建普通的repository一样，只不过需要将其名称设置为特定的格式：username.github.io , 其username就是你的gitbug账号了。</p>
-</li>
-<li><p>安装Hexo部署至GitHub Pages的插件<br>在终端命令行输入：npm install hexo-deployer-git –save ,完成插件安装</p>
-</li>
-<li><p>Hexo配置文件修改<br>在Hexo根目录下找到配置文件_config.yml并打开，修改其中关于部署的配置项：</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository url&gt; </span><br><span class="line">  branch: [branch] </span><br><span class="line">  message: [message]</span><br></pre></td></tr></table></figure>
-<p><strong><em>参数说明  </em></strong><br><strong>type：</strong> 部署类型，这里由于是部署在GitHub Pages上，所以只能填写git<br><strong>repo：</strong> 你的GitHub Pages绝对地址，如<a href="https://github.com/username/username.github.io" target="_blank" rel="noopener">https://github.com/username/username.github.io</a><br><strong>branch:</strong> 作为博客的发布分支，每次部署时，你的本地代码都被同步到这个分支上，GitHub Pages也将展示这个分支的内容<br><strong>message:</strong> 自定义提交信息 </p>
-<blockquote>
-<p>之前GitHub Pages可以选择任意分支作为发布分支，但是我部署的时候，在原先选择发布分支的地方，看到了 “User pages must be built from the master branch.”提示，也就是说现在只能将master分支作为发布分支，所以在配置文件中，你应该把branch:设置成 master</p>
-</blockquote>
-<ol start="4">
-<li>部署至GitHub Pages<br>在完成以上步骤后，依次在终端命令行执行以下脚本，即可将你的本地Hexo部署到GitHub Pages上，之后只需要通过浏览器访问你的GitHub Pages地址，就能看到博客了！</li>
-</ol>
-<h1 id="关于主题"><a href="#关于主题" class="headerlink" title="关于主题"></a>关于主题</h1><p>Hexo的主题可以看成是官方帮你实现的博客框架，现在有有很优秀的开源主题都放在gitbug上，其中<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NexT</a>是一款广受好评的主题，其下有4款不同的风格可供选择，当然你也可以搜索更多的主题，选择你喜欢的布局与风格，这里只介绍如何使用NexT主题，其他主题的使用方式大同小异。  </p>
-<p>首先，你需要把NexT主题下载到你的Hexo根目录下的themes文件夹中，这里推荐直接使用git来pull，在命令行输入如下脚本即可（执行的目录在Hexo根目录下）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>然后，你需要修改根目录下的配置文件_config.yml，将主题设置为NexT<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure></p>
-<p>最后，在命令行依次执行：hexo g 和 hexo d ，即可将主题应用到博客，并部署到GitHub Pages</p>
-<h1 id="关于版本管理"><a href="#关于版本管理" class="headerlink" title="关于版本管理"></a>关于版本管理</h1><p>众所周知，Hexo部署到GitHub的分支上作为博客内容的文件，是由Hexo根据元数据处理后生成的各种html、css、js，它们通常保存在Hexo根目录下的public文件夹下。而当你想要在另一台电脑上编辑你的博客内容时，你必须在该电脑上pull所有的元数据，然后再编写你的 .md 文件，并通过熟悉的hexo g来编译（渲染）生成public文件夹下的内容。因此，把所有元数据上传至GitHub十分必要，这里可以在你原来的“master”分支之外，再新建一个“meta”分支，作为元数据存放，这样一来，你的博客也正是加入了git版本管理中~~O(∩_∩)O。</p>
-<blockquote>
-<p>也许你将整个根目录作为分支上传到github后会发现，github分支中的文件比你本地Hexo根目录下的文件要少，那是因为有些hexo元数据是默认不需要上传的，他们被.gitignore文件设置成了不上传，如果你一定要上传这些文件，可以在.gitignore中将他们去掉</p>
-</blockquote>
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>关于Hexo的搭建与部署，在网上已经有很多比较全面的教程，这里记录的是本人搭建此Blog的过程，以及遇到的各种问题。目前记录的还不够完整，我会在后续不断优化我的博客时，不断在此处补充相关内容。</p>
-
+<h3 id="原因排查"><a href="#原因排查" class="headerlink" title="原因排查"></a>原因排查</h3><p>后台GC日志观察，的确是堆内存满了，导致FullGc，且FullGc后内存得不到释放，因此不断重复FullGc的动作，严重拖慢系统的处理速度。</p>
+<p>在jvm的Gc日志中，发现堆内存的老年代空间满，怀疑存在轻微内存泄漏，导出dump文件分析内存使用情况如下：</p>
+<p><img src="/2019/03/26/一次故障排查心得/oom.png" alt="oom"></p>
+<p>经过分析，是由于sql查询：select count(1) from prod_inst t where *** 的语句中，在mybatis一级缓存中大量存在，原因是只查询了这张表而没有修改，导致mybatis一级缓存无法刷新，而每次查询语句的prod_inst_id不一样，导致缓存越来越多</p>
+<p><img src="/2019/03/26/一次故障排查心得/dump.png" alt="oom"></p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>在xml配置文件中，这条sql的配置上，增加 flushCache=”true” 参数，使其自动刷新一级缓存，从而释放内存空间，解决此问题。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3>
       
     </div>
     
@@ -413,7 +394,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/JAVA/" rel="tag"># JAVA</a>
           
         </div>
       
@@ -426,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/29/hello-world/" rel="next" title="创世纪">
-                <i class="fa fa-chevron-left"></i> 创世纪
+              <a href="/2019/03/25/ring学习笔记与心得（四）/" rel="next" title="Spring学习笔记与心得（四）">
+                <i class="fa fa-chevron-left"></i> Spring学习笔记与心得（四）
               </a>
             
           </div>
@@ -436,8 +417,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/31/Hexo博客优化之路（一）/" rel="prev" title="Hexo博客优化之路（一）">
-                Hexo博客优化之路（一） <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/02/ring学习笔记与心得（五）/" rel="prev" title="Spring学习笔记与心得（五）">
+                Spring学习笔记与心得（五） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -582,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Hexo"><span class="nav-text">关于Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署到Github-Pages"><span class="nav-text">部署到Github Pages</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于主题"><span class="nav-text">关于主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于版本管理"><span class="nav-text">关于版本管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PS"><span class="nav-text">PS</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#故障描述"><span class="nav-text">故障描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原因排查"><span class="nav-text">原因排查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展"><span class="nav-text">扩展</span></a></li></ol></div>
             
 
           </div>
